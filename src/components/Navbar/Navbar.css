@@ -1,0 +1,30 @@
+/* Navigation.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .nav-logo img {
+    width: 35px;
+    height: auto;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: #808080;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-links a:hover {
+    color: #37B6BB;
+  }
+  
