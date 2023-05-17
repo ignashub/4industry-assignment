@@ -10,6 +10,14 @@ function App() {
   const [modalMode, setModalMode] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [users, setUsers] = useState(getUsers());
+  const [nextEmployeeNumber, setNextEmployeeNumber] = useState(getNextEmployeeNumber(users));
+
+  function getNextEmployeeNumber(users) {
+    const maxEmployeeNumber = users.reduce((max, user) => {
+      return user.employeeNumber > max ? user.employeeNumber : max;
+    }, 0);
+    return maxEmployeeNumber + 1;
+  }
 
   const handleCreate = () => {
     setModalMode('create');
@@ -22,24 +30,36 @@ function App() {
   };
 
   const handleCreateSubmit = (user) => {
-    if (modalMode === 'create' && currentUser === null) {
+    const newUser = {
+      ...user,
+      employeeNumber: nextEmployeeNumber,
+    };
   
-      const userWithInitials = {
-        ...user,
-        initials: `${user.firstName[0]}${user.lastName[0]}`,
-      };
+    const userWithInitials = {
+      ...newUser,
+      initials: `${newUser.firstName[0]}${newUser.lastName[0]}`,
+    };
   
-      console.log('Create User:', userWithInitials);
-      setModalMode(null);
-  
-      setUsers((prevUsers) => [...prevUsers, userWithInitials]);
-    }
-  };  
-
-  const handleEditSubmit = (user) => {
-    console.log('Edit User:', user);
+    console.log('Create User:', userWithInitials);
     setModalMode(null);
-  };
+    setNextEmployeeNumber(nextEmployeeNumber + 1);
+  
+    setUsers((prevUsers) => [...prevUsers, userWithInitials]);
+  };   
+
+  const handleEditSubmit = (editedUser) => {
+    const userWithInitials = {
+      ...editedUser,
+      initials: `${editedUser.firstName[0]}${editedUser.lastName[0]}`,
+    };
+  
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user.employeeNumber === editedUser.employeeNumber ? userWithInitials : user
+      )
+    );
+    setModalMode(null);
+  };    
 
   const handleDelete = (user) => {
     setModalMode('delete');

@@ -44,23 +44,20 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
         {isDeleteMode ? (
           <div>
             <p>Are you sure you want to delete this user?</p>
-            <p>Employee Number: {user?.employeeNumber}</p>
-            <p>First Name: {user?.firstName}</p>
-            <p>Last Name: {user?.lastName}</p>
-            <Button onClick={handleDelete} type="delete">Delete</Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <p><strong>Employee Number:</strong> {user?.employeeNumber}</p>
+            <p><strong>First Name:</strong> {user?.firstName}</p>
+            <p><strong>Last Name:</strong> {user?.lastName}</p>
+            <div className="button-group">
+            <Button onClick={handleDelete} type="delete" className="delete-button">
+              Delete
+            </Button>
+            <Button onClick={onClose} className="cancel-button">
+              Cancel
+            </Button>
+          </div>
         </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <label>
-              Employee Number:
-              <input
-                name="employeeNumber"
-                value={employeeNumber}
-                onChange={(e) => setEmployeeNumber(e.target.value)}
-                required
-              />
-            </label>
             <label>
               First Name:
               <input

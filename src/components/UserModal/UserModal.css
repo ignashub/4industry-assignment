@@ -58,4 +58,13 @@
   .user-modal-header {
     margin-bottom: 40px;
   }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
   
+  .delete-button {
+    margin-right: 8px;
+  }
