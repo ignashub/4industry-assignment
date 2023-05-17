@@ -1,6 +1,6 @@
 /* UserModal.css */
 
-.modal {
+.user-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,11 +13,11 @@
     backdrop-filter: blur(4px);
   }
   
-  .modal.open {
+  .user-modal.open {
     display: flex;
   }
   
-  .modal-content {
+  .user-modal-content {
     background-color: #fff;
     padding: 30px 80px;
     border-radius: 8px;
@@ -55,7 +55,7 @@
     }
   }
   
-  .modal-header {
+  .user-modal-header {
     margin-bottom: 40px;
   }
   

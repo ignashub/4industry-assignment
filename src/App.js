@@ -6,9 +6,10 @@ import Navbar from './components/Navbar';
 import { getUsers, createUser } from './data/users';
 
 function App() {
-  const [modalMode, setModalMode] = useState(false);
+  const [modalMode, setModalMode] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-  const [users, setUsers] = useState(getUsers()); // Initialize users state with initial data
+  const [users, setUsers] = useState(getUsers());
+  const [userToDelete, setUserToDelete] = useState(null);
 
   const handleCreate = () => {
     setModalMode('create');
@@ -22,16 +23,15 @@ function App() {
 
   const handleCreateSubmit = (user) => {
     createUser(user);
-  
+
     const userWithInitials = {
       ...user,
       initials: `${user.firstName[0]}${user.lastName[0]}`,
     };
-  
+
     console.log('Create User:', userWithInitials);
     setModalMode(null);
-  
-    // Update the users array in the state
+
     setUsers((prevUsers) => [...prevUsers, userWithInitials]);
   };
 
@@ -41,8 +41,21 @@ function App() {
   };
 
   const handleDelete = (user) => {
-    console.log(`Deleting user with employee number: ${user.employeeNumber}`);
-    // Your actual delete logic goes here
+    setUserToDelete(user);
+    setModalMode('delete');
+  };
+  
+  const handleDeleteConfirm = () => {
+    if (userToDelete) {
+      setUsers((prevUsers) => prevUsers.filter((user) => user.employeeNumber !== userToDelete.employeeNumber));
+      setUserToDelete(null);
+      setModalMode(null);
+    }
+  };
+  
+  const handleDeleteCancel = () => {
+    setUserToDelete(null);
+    setModalMode(null);
   };
 
   const handleClose = () => {
@@ -68,6 +81,8 @@ function App() {
           mode={modalMode}
           user={currentUser}
           onSubmit={modalMode === 'create' ? handleCreateSubmit : handleEditSubmit}
+          onDeleteConfirm={handleDeleteConfirm} // Updated prop name
+          onDeleteCancel={handleDeleteCancel} // Updated prop name
           onClose={handleClose}
         />
       )}
