@@ -9,20 +9,6 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   const [email, setEmail] = useState(mode === 'edit' || mode === 'delete' ? user.email : '');
   const [phone, setPhone] = useState(mode === 'edit' || mode === 'delete' ? user.phone : '');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newUser = {
-      employeeNumber,
-      firstName,
-      lastName,
-      email,
-      phone,
-    };
-
-    onSubmit(newUser);
-  };
-
   const handleDelete = () => {
     onDeleteConfirm(user);
     onClose();
@@ -51,7 +37,21 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
             <Button onClick={onClose}>Cancel</Button>
         </div>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              const newUser = {
+                employeeNumber,
+                firstName,
+                lastName,
+                email,
+                phone,
+              };
+
+              onSubmit(newUser);
+            }}
+          >
             <label>
               Employee Number:
               <input

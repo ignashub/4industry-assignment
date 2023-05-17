@@ -4,6 +4,7 @@ import UserCard from './components/UserCard';
 import UserModal from './components/UserModal/UserModal';
 import Navbar from './components/Navbar';
 import { getUsers, createUser } from './data/users';
+import Button from './components/Button';
 
 function App() {
   const [modalMode, setModalMode] = useState(null);
@@ -21,18 +22,20 @@ function App() {
   };
 
   const handleCreateSubmit = (user) => {
-    createUser(user);
-
-    const userWithInitials = {
-      ...user,
-      initials: `${user.firstName[0]}${user.lastName[0]}`,
-    };
-
-    console.log('Create User:', userWithInitials);
-    setModalMode(null);
-
-    setUsers((prevUsers) => [...prevUsers, userWithInitials]);
-  };
+    if (modalMode === 'create' && currentUser === null) {
+      createUser(user);
+  
+      const userWithInitials = {
+        ...user,
+        initials: `${user.firstName[0]}${user.lastName[0]}`,
+      };
+  
+      console.log('Create User:', userWithInitials);
+      setModalMode(null);
+  
+      setUsers((prevUsers) => [...prevUsers, userWithInitials]);
+    }
+  };  
 
   const handleEditSubmit = (user) => {
     console.log('Edit User:', user);
@@ -59,7 +62,7 @@ function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      <button onClick={handleCreate}>Create User</button>
+      <Button onClick={handleCreate}>Create User</Button>
       <div className="user-card-container">
         {users.map((user) => (
           <UserCard
