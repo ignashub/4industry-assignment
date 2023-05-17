@@ -9,7 +9,6 @@ function App() {
   const [modalMode, setModalMode] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [users, setUsers] = useState(getUsers());
-  const [userToDelete, setUserToDelete] = useState(null);
 
   const handleCreate = () => {
     setModalMode('create');
@@ -41,22 +40,17 @@ function App() {
   };
 
   const handleDelete = (user) => {
-    setUserToDelete(user);
     setModalMode('delete');
+    setCurrentUser(user);
   };
   
   const handleDeleteConfirm = () => {
-    if (userToDelete) {
-      setUsers((prevUsers) => prevUsers.filter((user) => user.employeeNumber !== userToDelete.employeeNumber));
-      setUserToDelete(null);
+    if (currentUser) {
+      setUsers((prevUsers) => prevUsers.filter((user) => user.employeeNumber !== currentUser.employeeNumber));
+      setCurrentUser(null);
       setModalMode(null);
     }
-  };
-  
-  const handleDeleteCancel = () => {
-    setUserToDelete(null);
-    setModalMode(null);
-  };
+  };  
 
   const handleClose = () => {
     setModalMode(null);
@@ -81,8 +75,7 @@ function App() {
           mode={modalMode}
           user={currentUser}
           onSubmit={modalMode === 'create' ? handleCreateSubmit : handleEditSubmit}
-          onDeleteConfirm={handleDeleteConfirm} // Updated prop name
-          onDeleteCancel={handleDeleteCancel} // Updated prop name
+          onDeleteConfirm={handleDeleteConfirm}
           onClose={handleClose}
         />
       )}

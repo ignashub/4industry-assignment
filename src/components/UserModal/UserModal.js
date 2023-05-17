@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Button from '../Button';
 import './UserModal.css';
 
-const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onDeleteCancel, onDelete, onClose }) => {
-  const [employeeNumber, setEmployeeNumber] = useState(mode === 'edit' ? user.employeeNumber : '');
-  const [firstName, setFirstName] = useState(mode === 'edit' ? user.firstName : '');
-  const [lastName, setLastName] = useState(mode === 'edit' ? user.lastName : '');
-  const [email, setEmail] = useState(mode === 'edit' ? user.email : '');
-  const [phone, setPhone] = useState(mode === 'edit' ? user.phone : '');
+const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
+  const [employeeNumber, setEmployeeNumber] = useState(mode === 'edit' || mode === 'delete' ? user.employeeNumber : '');
+  const [firstName, setFirstName] = useState(mode === 'edit' || mode === 'delete' ? user.firstName : '');
+  const [lastName, setLastName] = useState(mode === 'edit' || mode === 'delete' ? user.lastName : '');
+  const [email, setEmail] = useState(mode === 'edit' || mode === 'delete' ? user.email : '');
+  const [phone, setPhone] = useState(mode === 'edit' || mode === 'delete' ? user.phone : '');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,12 +24,16 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onDeleteCancel, onDe
   };
 
   const handleDelete = () => {
-    onDelete(user);
+    onDeleteConfirm(user);
     onClose();
   };
 
   const isDeleteMode = mode === 'delete';
-  const modalHeader = isDeleteMode ? 'Delete User' : mode === 'edit' ? 'Edit User' : 'Create User';
+  const modalHeader = isDeleteMode
+  ? `Delete ${user?.firstName} ${user?.lastName}`
+  : mode === 'edit'
+  ? `Edit ${user?.firstName} ${user?.lastName}`
+  : 'Create User';
 
   return (
     <div className={`user-modal ${mode ? 'open' : ''}`}>
@@ -40,9 +44,12 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onDeleteCancel, onDe
         {isDeleteMode ? (
           <div>
             <p>Are you sure you want to delete this user?</p>
-            <Button onClick={onDeleteConfirm} type="delete">Delete</Button> {/* Updated to onDeleteConfirm */}
-            <Button onClick={onDeleteCancel}>Cancel</Button> {/* Updated to onDeleteCancel */}
-          </div>
+            <p>Employee Number: {user?.employeeNumber}</p>
+            <p>First Name: {user?.firstName}</p>
+            <p>Last Name: {user?.lastName}</p>
+            <Button onClick={handleDelete} type="delete">Delete</Button>
+            <Button onClick={onClose}>Cancel</Button>
+        </div>
         ) : (
           <form onSubmit={handleSubmit}>
             <label>
