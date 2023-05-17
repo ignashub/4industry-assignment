@@ -3,7 +3,7 @@ import './App.css';
 import UserCard from './components/UserCard';
 import UserModal from './components/UserModal/UserModal';
 import Navbar from './components/Navbar';
-import { getUsers, createUser } from './data/users';
+import { getUsers} from './data/users';
 import Button from './components/Button';
 
 function App() {
@@ -23,7 +23,6 @@ function App() {
 
   const handleCreateSubmit = (user) => {
     if (modalMode === 'create' && currentUser === null) {
-      createUser(user);
   
       const userWithInitials = {
         ...user,

@@ -21,14 +21,3 @@ const usersWithInitials = users.map(user => ({
 }));
 
 export const getUsers = () => usersWithInitials;
-
-export const createUser = (user) => {
-  users.push(user);
-
-  const newUserWithInitials = {
-    ...user,
-    initials: `${user.firstName[0]}${user.lastName[0]}`,
-  };
-
-  usersWithInitials.push(newUserWithInitials);
-};
