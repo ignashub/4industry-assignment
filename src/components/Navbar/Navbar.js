@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css';
 import Logo from '../../assets/4industry.png';
+import Button from '../Button';
 
-const Navbar = () => {
+const Navbar = ({ onCreate }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar">
-    <div className="nav-logo">
-      {/* Replace with your actual logo */}
-      <a href="/">
-        <img src={Logo} alt="Logo" />
-      </a>
-    </div>
-    <ul className="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
-  )
+      <div className="nav-logo">
+        <a href="/" onClick={(e) => {e.preventDefault(); setIsOpen(!isOpen);}}>
+          <img src={Logo} alt="Logo" />
+        </a>
+      </div>
+      {isOpen && (
+        <div className="nav-menu">
+          <Button onClick={onCreate}>Create User</Button>
+        </div>
+      )}
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

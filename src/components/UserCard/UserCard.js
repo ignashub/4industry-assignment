@@ -2,9 +2,9 @@ import React from 'react';
 import Button from '../Button';
 import './UserCard.css';
 
-const UserCard = ({ user, onEdit, onDelete }) => {
+const UserCard = ({ user, onEdit, onDelete, style }) => {
   return (
-    <div className="user-card">
+    <div className="user-card" style={style}>
       <div className="user-badge">{user.initials}</div>
       <div className="user-info">
         <h2>{`${user.firstName} ${user.lastName}`}</h2>

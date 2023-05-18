@@ -34,6 +34,8 @@ const users = [
     email: 'emily.williams@example.com',
     phone: '777-555-1234',
   },
+  
+  
 ];
   
 const usersWithInitials = users.map(user => ({

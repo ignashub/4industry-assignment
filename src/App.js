@@ -11,6 +11,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [users, setUsers] = useState(getUsers());
   const [nextEmployeeNumber, setNextEmployeeNumber] = useState(getNextEmployeeNumber(users));
+  const [deletingUser, setDeletingUser] = useState(null);
 
   function getNextEmployeeNumber(users) {
     const maxEmployeeNumber = users.reduce((max, user) => {
@@ -80,17 +81,19 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <Button onClick={handleCreate}>Create User</Button>
-      <div className="user-card-container">
-        {users.map((user) => (
+      <Navbar onCreate={handleCreate}></Navbar>
+      <div className="cards-container">
+        <div className="user-card-container">
+        {users.map((user, index) => (
           <UserCard
             key={user.employeeNumber}
             user={user}
             onEdit={handleEdit}
             onDelete={handleDelete}
+            style={{ animationDelay: `${index * 0.1}s` }}
           />
         ))}
+        </div>
       </div>
       {modalMode && (
         <UserModal
