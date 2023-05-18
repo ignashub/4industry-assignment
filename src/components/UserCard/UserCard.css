@@ -4,11 +4,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 200px;
     padding: 20px;
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    min-width: 250px;
+    max-width: 250px;
   }
 
   @keyframes slideOut {
@@ -48,8 +51,11 @@
 }
 
 .user-info {
-  text-align: center;
+  flex: 1;
+  text-align: left;
   margin-bottom: 20px;
+  min-height: 80px;
+  overflow-wrap: break-word;
 }
 
 .user-actions {
