@@ -10,8 +10,9 @@ const About = () => {
       
       <div className="content">
         <h1>Welcome!</h1>
-        <p>This is a simple CRUD application - User Management System.</p>
-        <p>For more info check it at Github.</p>
+        <p>This is a simple front-end CRUD application - User Management System.</p>
+        <p>You can Create, Update and Delete users.</p>
+        <p>For more info check it at <a href="https://github.com/ignashub/4industry-assignment" target="_blank" rel="noreferrer">here</a>.</p>
       </div>
     </div>
     </div>

@@ -1,22 +1,15 @@
-/* About.css */
 .About {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the start vertically */
+  align-items: center; /* Align content to the center horizontally */
   background-color: #c5f2f4;
   min-height: 100vh;
-  text-align: center;
-}
-
-.About .Navbar {
-  position: fixed;
-  left: 0;
-  top: 0;
+  padding-top: 3em; /* This is the space from the top. Adjust as per your needs */
 }
 
 .content {
   max-width: 600px;
   padding: 1em;
-  margin: auto;
+  text-align: center; /* Text alignment */
 }
