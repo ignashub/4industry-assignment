@@ -1,1 +1,1 @@
-// export { default } from './UserModal';
+export { default } from './Modal';

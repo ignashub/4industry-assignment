@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import UserCard from '../../components/UserCard';
-import Modal from '../../components/Modal/Modal';
+import Modal from '../../components/Modal';
 import Navbar from '../../components/Navbar';
 import { getUsers} from '../../data/users';
 import './Home.css';
