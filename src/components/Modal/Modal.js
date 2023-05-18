@@ -3,7 +3,7 @@ import Button from '../Button';
 import './Modal.css';
 
 const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
-  const [employeeNumber, setEmployeeNumber] = useState(mode === 'edit' || mode === 'delete' ? user.employeeNumber : '');
+  const [employeeNumber] = useState(mode === 'edit' || mode === 'delete' ? user.employeeNumber : '');
   const [firstName, setFirstName] = useState(mode === 'edit' || mode === 'delete' ? user.firstName : '');
   const [lastName, setLastName] = useState(mode === 'edit' || mode === 'delete' ? user.lastName : '');
   const [email, setEmail] = useState(mode === 'edit' || mode === 'delete' ? user.email : '');
