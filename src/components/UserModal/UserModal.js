@@ -8,7 +8,6 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   const [lastName, setLastName] = useState(mode === 'edit' || mode === 'delete' ? user.lastName : '');
   const [email, setEmail] = useState(mode === 'edit' || mode === 'delete' ? user.email : '');
   const [phone, setPhone] = useState(mode === 'edit' || mode === 'delete' ? user.phone : '');
-  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,28 +24,19 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   };
 
   const handleDelete = () => {
-    setIsDeleting(true);
     onDeleteConfirm(user);
-  };
-
-  const handleAnimationEnd = () => {
-    if (isDeleting) {
-      onClose();
-    }
+    onClose();
   };
 
   const isDeleteMode = mode === 'delete';
   const modalHeader = isDeleteMode
-    ? `Delete ${user?.firstName} ${user?.lastName}`
-    : mode === 'edit'
-    ? `Edit ${user?.firstName} ${user?.lastName}`
-    : 'Create User';
+  ? `Delete ${user?.firstName} ${user?.lastName}`
+  : mode === 'edit'
+  ? `Edit ${user?.firstName} ${user?.lastName}`
+  : 'Create User';
 
   return (
-    <div
-      className={`user-modal ${mode ? 'open' : ''} ${isDeleting ? 'deleting' : ''}`}
-      onAnimationEnd={handleAnimationEnd}
-    >
+    <div className={`user-modal ${mode ? 'open' : ''}`}>
       <div className="user-modal-content">
         <div className="user-modal-header">
           <h1>{modalHeader}</h1>
@@ -58,14 +48,14 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
             <p><strong>First Name:</strong> {user?.firstName}</p>
             <p><strong>Last Name:</strong> {user?.lastName}</p>
             <div className="button-group">
-              <Button onClick={handleDelete} type="delete" className="delete-button">
-                Delete
-              </Button>
-              <Button onClick={onClose} className="cancel-button">
-                Cancel
-              </Button>
-            </div>
+            <Button onClick={handleDelete} type="delete" className="delete-button">
+              Delete
+            </Button>
+            <Button onClick={onClose} className="cancel-button">
+              Cancel
+            </Button>
           </div>
+        </div>
         ) : (
           <form onSubmit={handleSubmit}>
             <label>

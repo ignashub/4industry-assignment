@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './Navbar.css';
 import Logo from '../../assets/4industry.png';
 import Button from '../Button';
@@ -9,15 +9,14 @@ const Navbar = ({ onCreate }) => {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        <a href="/" onClick={(e) => {e.preventDefault(); setIsOpen(!isOpen);}}>
+        <a href="/" onClick={(e) => { e.preventDefault(); setIsOpen(!isOpen); }}>
           <img src={Logo} alt="Logo" />
         </a>
       </div>
-      {isOpen && (
-        <div className="nav-menu">
-          <Button onClick={onCreate}>Create User</Button>
-        </div>
-      )}
+      <div className="nav-menu">
+        <Button onClick={onCreate}>Create User</Button>
+        <a href="/about">About</a>
+      </div>
     </nav>
   );
 }
