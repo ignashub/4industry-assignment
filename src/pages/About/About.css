@@ -1,0 +1,22 @@
+/* About.css */
+.About {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #c5f2f4;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.About .Navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.content {
+  max-width: 600px;
+  padding: 1em;
+  margin: auto;
+}

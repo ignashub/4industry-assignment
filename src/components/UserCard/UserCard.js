@@ -2,9 +2,16 @@ import React from 'react';
 import Button from '../Button';
 import './UserCard.css';
 
-const UserCard = ({ user, onEdit, onDelete, style }) => {
+const UserCard = ({ user, onEdit, onDelete, isDeleting, style }) => {
+  const handleDelete = () => {
+    onDelete(user);
+  };
+
   return (
-    <div className="user-card" style={style}>
+    <div
+      className={`user-card ${isDeleting ? 'slide-out' : ''}`}
+      style={{ ...style, transitionDelay: isDeleting ? '0.3s' : '0s' }}
+      >
       <div className="user-badge">{user.initials}</div>
       <div className="user-info">
         <h2>{`${user.firstName} ${user.lastName}`}</h2>
@@ -20,7 +27,7 @@ const UserCard = ({ user, onEdit, onDelete, style }) => {
       </div>
       <div className="user-actions">
         <Button onClick={() => onEdit(user)}>Edit</Button>
-        <Button onClick={() => onDelete(user)} type="delete">
+        <Button onClick={handleDelete} type="delete">
           Delete
         </Button>
       </div>

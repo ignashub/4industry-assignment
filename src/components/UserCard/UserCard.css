@@ -1,4 +1,5 @@
 .user-card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,33 +10,50 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
   }
-  
-  .user-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
   }
-  
-  .user-badge {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 50%;
-    background-color: #47c8ce;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .user-info {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .user-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
+
+.user-card.slide-out {
+  animation: slideOut 0.5s forwards;
+}
+
+.user-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-badge {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #47c8ce;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
