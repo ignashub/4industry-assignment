@@ -9,8 +9,9 @@ const About = () => {
     <div className="About">
       
       <div className="content">
-        <h1>Welcome to the About Page</h1>
-        <p>This is some dummy text that will appear in the middle of the page.</p>
+        <h1>Welcome!</h1>
+        <p>This is a simple CRUD application - User Management System.</p>
+        <p>For more info check it at Github.</p>
       </div>
     </div>
     </div>
