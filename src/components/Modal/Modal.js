@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Button from '../Button';
-import './UserModal.css';
+import './Modal.css';
 
-const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
+const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   const [employeeNumber, setEmployeeNumber] = useState(mode === 'edit' || mode === 'delete' ? user.employeeNumber : '');
   const [firstName, setFirstName] = useState(mode === 'edit' || mode === 'delete' ? user.firstName : '');
   const [lastName, setLastName] = useState(mode === 'edit' || mode === 'delete' ? user.lastName : '');
@@ -29,6 +29,7 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   };
 
   const isDeleteMode = mode === 'delete';
+  const modalHeaderClass = isDeleteMode ? "modal-header" : "modal-header-edit-create";
   const modalHeader = isDeleteMode
   ? `Delete ${user?.firstName} ${user?.lastName}`
   : mode === 'edit'
@@ -36,9 +37,9 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   : 'Create User';
 
   return (
-    <div className={`user-modal ${mode ? 'open' : ''}`}>
-      <div className="user-modal-content">
-        <div className="user-modal-header">
+    <div className={`modal ${mode ? 'open' : ''}`}>
+      <div className="modal-content">
+        <div className={modalHeaderClass}>
           <h1>{modalHeader}</h1>
         </div>
         {isDeleteMode ? (
@@ -95,8 +96,10 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
                 required
               />
             </label>
-            <Button type="submit">Submit</Button>
-            <Button onClick={onClose}>Close</Button>
+            <div className="button-group">
+              <Button type="submit">Submit</Button>
+              <Button onClick={onClose}>Close</Button>
+            </div>
           </form>
         )}
       </div>
@@ -104,4 +107,4 @@ const UserModal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   );
 };
 
-export default UserModal;
+export default Modal;

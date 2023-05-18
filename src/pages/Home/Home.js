@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import UserCard from '../../components/UserCard';
-import UserModal from '../../components/UserModal/UserModal';
+import Modal from '../../components/Modal/Modal';
 import Navbar from '../../components/Navbar';
 import { getUsers} from '../../data/users';
 import './Home.css';
@@ -115,7 +115,7 @@ const Home = () => {
           </div>
         </div>
         {modalMode && (
-          <UserModal
+          <Modal
             mode={modalMode}
             user={currentUser}
             onSubmit={modalMode === 'create' ? handleCreateSubmit : handleEditSubmit}
