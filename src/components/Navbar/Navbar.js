@@ -4,8 +4,16 @@ import Logo from '../../assets/4industry.png';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ onCreate }) => {
+const Navbar = ({ onCreate, currentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleCreateUser = () => {
+    if (currentPage === 'about') {
+      window.location.href = '/';
+    } else {
+      onCreate();
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -15,7 +23,7 @@ const Navbar = ({ onCreate }) => {
         </Link>
       </div>
       <div className="nav-menu">
-        <Button onClick={onCreate}>Create User</Button>
+        <Button onClick={handleCreateUser}>Create User</Button>
         <Link to="/about">About</Link>
       </div>
     </nav>

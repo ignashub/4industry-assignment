@@ -5,7 +5,7 @@ import './About.css';
 
 const About = () => {
   return (<div>
-    <Navbar></Navbar>
+    <Navbar currentPage={"about"}></Navbar>
     <div className="About">
       
       <div className="content">

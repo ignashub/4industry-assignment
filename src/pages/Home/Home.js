@@ -99,7 +99,7 @@ const Home = () => {
 
   return (
       <div className="Home">
-        <Navbar onCreate={handleCreate}/>
+        <Navbar onCreate={handleCreate} currentPage={"home"}/>
         <div className="cards-container">
           <div className="user-card-container">
           {users.map((user, index) => (
