@@ -1,15 +1,15 @@
 .About {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content to the start vertically */
-  align-items: center; /* Align content to the center horizontally */
+  justify-content: flex-start;
+  align-items: center;
   background-color: #c5f2f4;
   min-height: 100vh;
-  padding-top: 3em; /* This is the space from the top. Adjust as per your needs */
+  padding-top: 3em;
 }
 
 .content {
   max-width: 600px;
   padding: 1em;
-  text-align: center; /* Text alignment */
+  text-align: center;
 }

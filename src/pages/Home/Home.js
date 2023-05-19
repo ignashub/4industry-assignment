@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import UserCard from '../../components/UserCard';
 import Modal from '../../components/Modal';
 import Navbar from '../../components/Navbar';
@@ -8,24 +8,9 @@ import './Home.css';
 
 const Home = () => {
 	const [modalMode, setModalMode] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
-  const [users, setUsers] = useState(getUsers());
-  const [nextEmployeeNumber, setNextEmployeeNumber] = useState(getNextEmployeeNumber(users));
-  const [deletingUser, setDeletingUser] = useState(null);
-
-	useEffect(() => {
-		if (deletingUser) {
-				const timer = setTimeout(() => {
-				setUsers((prevUsers) => prevUsers.filter((user) => user.employeeNumber !== deletingUser.employeeNumber));
-				setDeletingUser(null);
-				setModalMode(null);
-				}, 500); // delay before deletion
-		
-				return () => {
-				clearTimeout(timer);
-				};
-		}
-		}, [deletingUser]);
+	const [currentUser, setCurrentUser] = useState(null);
+	const [users, setUsers] = useState(getUsers());
+	const [nextEmployeeNumber, setNextEmployeeNumber] = useState(getNextEmployeeNumber(users));
 
 	function getNextEmployeeNumber(users) {
 		const maxEmployeeNumber = users.reduce((max, user) => {
@@ -83,15 +68,10 @@ const Home = () => {
 	
 	const handleDeleteConfirm = (userToDelete) => {
 		setModalMode(null);
-		setDeletingUser(userToDelete);
-	
-		setTimeout(() => {
 			setUsers((prevUsers) =>
-				prevUsers.filter((user) => user.employeeNumber !== userToDelete.employeeNumber)
-			);
-			setDeletingUser(null);
-		}, 500);
-	};  
+			prevUsers.filter((user) => user.employeeNumber !== userToDelete.employeeNumber)
+		);
+	}; 
 
 	const handleClose = () => {
 		setModalMode(null);
@@ -108,7 +88,6 @@ const Home = () => {
               user={user}
               onEdit={handleEdit}
               onDelete={handleDelete}
-              isDeleting={deletingUser && deletingUser.employeeNumber === user.employeeNumber}
               style={{ animationDelay: `${index * 0.1}s` }}
             />
           ))}

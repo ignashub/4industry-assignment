@@ -14,9 +14,9 @@
   z-index: 1000;
 }
 
-.modal.open {
-  display: flex;
-}
+  .modal.open {
+    display: flex;
+  }
 
 .modal-content {
   background-color: #fff;
