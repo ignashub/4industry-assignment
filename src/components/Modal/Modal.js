@@ -65,50 +65,65 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
           </div>
         </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <label>
-              First Name:
-              <input
-                name="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Last Name:
-              <input
-                name="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Email:
-              <input
-                name="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Phone:
-              <input
-                name="phone"
-                type="tel"
-                value={phone}
-                onChange={handlePhoneChange}
-                required
-              />
-            </label>
-            <div className="button-group">
-              <Button type="submit">Submit</Button>
-              <Button onClick={onClose}>Close</Button>
-            </div>
-          </form>
+        <form onSubmit={handleSubmit}>
+          <label>
+            First Name:
+            <input
+              name="firstName"
+              value={firstName}
+              onChange={(e) => {
+                if (e.target.value.length <= 50) {
+                  setFirstName(e.target.value)
+                }
+              }}
+              required
+            />
+          </label>
+          <label>
+            Last Name:
+            <input
+              name="lastName"
+              value={lastName}
+              onChange={(e) => {
+                if (e.target.value.length <= 50) {
+                  setLastName(e.target.value)
+                }
+              }}
+              required
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => {
+                if (e.target.value.length <= 35) {
+                  setEmail(e.target.value)
+                }
+              }}
+              required
+            />
+          </label>
+          <label>
+            Phone:
+            <input
+              name="phone"
+              value={phone}
+              onChange={(e) => {
+                if (e.target.value.length <= 20) {
+                  setPhone(e.target.value)
+                }
+              }}
+              required
+            />
+          </label>
+          <div className="button-group">
+            <Button type="submit">Submit</Button>
+            <Button onClick={onClose}>Close</Button>
+          </div>
+        </form>
         )}
       </div>
     </div>
