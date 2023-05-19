@@ -9,6 +9,14 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
   const [email, setEmail] = useState(mode === 'edit' || mode === 'delete' ? user.email : '');
   const [phone, setPhone] = useState(mode === 'edit' || mode === 'delete' ? user.phone : '');
 
+  const isDeleteMode = mode === 'delete';
+  const modalHeaderClass = isDeleteMode ? "modal-header" : "modal-header-edit-create";
+  const modalHeader = isDeleteMode
+  ? `Delete ${user?.firstName} ${user?.lastName}`
+  : mode === 'edit'
+  ? `Edit ${user?.firstName} ${user?.lastName}`
+  : 'Create User';
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -28,13 +36,12 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
     onClose();
   };
 
-  const isDeleteMode = mode === 'delete';
-  const modalHeaderClass = isDeleteMode ? "modal-header" : "modal-header-edit-create";
-  const modalHeader = isDeleteMode
-  ? `Delete ${user?.firstName} ${user?.lastName}`
-  : mode === 'edit'
-  ? `Edit ${user?.firstName} ${user?.lastName}`
-  : 'Create User';
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    if (/^[0-9]*$/.test(value)) {
+      setPhone(value);
+    }
+  }
 
   return (
     <div className={`modal ${mode ? 'open' : ''}`}>
@@ -91,8 +98,9 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
               Phone:
               <input
                 name="phone"
+                type="tel"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={handlePhoneChange}
                 required
               />
             </label>

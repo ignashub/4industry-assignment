@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../Button';
 import './UserCard.css';
 
@@ -6,8 +6,6 @@ const UserCard = ({ user, onEdit, onDelete, style, isDeleting }) => {
   const handleDelete = () => {
     onDelete(user);
   };
-
-  console.log(isDeleting);
 
   return (
     <div
