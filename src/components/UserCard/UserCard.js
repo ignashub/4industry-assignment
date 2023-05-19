@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Button';
 import './UserCard.css';
 
-const UserCard = ({ user, onEdit, onDelete, style }) => {
+const UserCard = ({ user, onEdit, onDelete, style, isDeleting }) => {
   const handleDelete = () => {
     onDelete(user);
   };
 
+  console.log(isDeleting);
+
   return (
     <div
-      className="user-card"
+      className={isDeleting ? 'user-card-slide-out' : 'user-card'}
       style={style}
       >
       <div className="user-badge">{user.initials}</div>

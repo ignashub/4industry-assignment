@@ -11,6 +11,7 @@ const Home = () => {
 	const [currentUser, setCurrentUser] = useState(null);
 	const [users, setUsers] = useState(getUsers());
 	const [nextEmployeeNumber, setNextEmployeeNumber] = useState(getNextEmployeeNumber(users));
+	const [deletingUsers, setDeletingUsers] = useState([]);
 
 	function getNextEmployeeNumber(users) {
 		const maxEmployeeNumber = users.reduce((max, user) => {
@@ -68,10 +69,18 @@ const Home = () => {
 	
 	const handleDeleteConfirm = (userToDelete) => {
 		setModalMode(null);
+		setDeletingUsers((prevDeletingUsers) => [...prevDeletingUsers, userToDelete.employeeNumber]);
+	
+		setTimeout(() => {
 			setUsers((prevUsers) =>
-			prevUsers.filter((user) => user.employeeNumber !== userToDelete.employeeNumber)
-		);
-	}; 
+				prevUsers.filter((user) => user.employeeNumber !== userToDelete.employeeNumber)
+			);
+			setDeletingUsers((prevDeletingUsers) =>
+				prevDeletingUsers.filter((employeeNumber) => employeeNumber !== userToDelete.employeeNumber)
+			);
+		}, 500);
+	};
+	
 
 	const handleClose = () => {
 		setModalMode(null);
@@ -89,6 +98,7 @@ const Home = () => {
               onEdit={handleEdit}
               onDelete={handleDelete}
               style={{ animationDelay: `${index * 0.1}s` }}
+							isDeleting={deletingUsers.includes(user.employeeNumber)}
             />
           ))}
           </div>

@@ -26,8 +26,8 @@
 } 
     
 
-.user-card.slide-out {
-  animation: slideOutFromRight 0.5s forwards
+.user-card-slide-out {
+  animation: slideOutFromRight 0.5s ease forwards;
 }
 
 .user-card:hover {
