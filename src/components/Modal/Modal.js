@@ -74,7 +74,7 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
               name="firstName"
               value={firstName}
               onChange={(e) => {
-                if (e.target.value.length <= 50) {
+                if (e.target.value.length <= 20) {
                   setFirstName(e.target.value)
                 }
               }}
@@ -87,7 +87,7 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
               name="lastName"
               value={lastName}
               onChange={(e) => {
-                if (e.target.value.length <= 50) {
+                if (e.target.value.length <= 20) {
                   setLastName(e.target.value)
                 }
               }}
