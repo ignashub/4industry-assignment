@@ -36,12 +36,14 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
     onClose();
   };
 
-  const handlePhoneChange = (e) => {
-    const value = e.target.value;
-    if (/^[0-9]*$/.test(value)) {
-      setPhone(value);
+  const handlePhoneChange = (event) => {
+    const phoneInput = event.target.value;
+  
+    if (!isNaN(phoneInput) && Number.isInteger(Number(phoneInput)) && phoneInput.length <= 20) {
+      setPhone(phoneInput);
     }
-  }
+  };
+  
 
   return (
     <div className={`modal ${mode ? 'open' : ''}`}>
@@ -111,11 +113,7 @@ const Modal = ({ mode, user, onSubmit, onDeleteConfirm, onClose }) => {
             <input
               name="phone"
               value={phone}
-              onChange={(e) => {
-                if (e.target.value.length <= 20) {
-                  setPhone(e.target.value)
-                }
-              }}
+              onChange={handlePhoneChange}
               required
             />
           </label>
