@@ -46,3 +46,18 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .cards-container {
+    padding: 70px; 
+  }
+
+  .user-card-container {
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding-bottom: 20px;
+  }
+}

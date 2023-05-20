@@ -22,8 +22,10 @@ const Navbar = ({ onCreate, currentPage }) => {
           <img src={Logo} alt="Logo" />
         </Link>
       </div>
-      <div className="nav-menu">
+      <div className="nav-item">
         <Button onClick={handleCreateUser}>Create User</Button>
+      </div>
+      <div className="nav-item">
         <Link to="/about">About</Link>
       </div>
     </nav>
