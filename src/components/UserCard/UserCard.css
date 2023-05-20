@@ -62,17 +62,179 @@
   gap: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .cards-container {
-    padding: 10px;
-  }
 
-  .user-card-container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-    padding-bottom: 20px;
+/* Responsive Cards */
+@media screen and (min-width: 540px) and (max-width: 560px) {
+  .user-card {
+    min-width: 170px;
+    max-width: 170px;
+  }
+}
+
+@media screen and (min-width: 560px) and (max-width: 580px) {
+  .user-card {
+    min-width: 180px;
+    max-width: 180px;
+  }
+}
+
+@media screen and (min-width: 580px) and (max-width: 590px) {
+  .user-card {
+    min-width: 190px;
+    max-width: 190px;
+  }
+}
+
+@media screen and (min-width: 590px) and (max-width: 600px) {
+  .user-card {
+    min-width: 195px;
+    max-width: 195px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 650px) {
+  .user-card {
+    min-width: 200px;
+    max-width: 200px;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 700px) {
+  .user-card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+
+@media screen and (min-width: 770px) and (max-width: 800px) {
+  .user-card {
+    min-width: 170px;
+    max-width: 170px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 815px) {
+  .user-card {
+    min-width: 180px;
+    max-width: 180px;
+  }
+}
+
+@media screen and (min-width: 815px) and (max-width: 830px) {
+  .user-card {
+    min-width: 185px;
+    max-width: 185px;
+  }
+}
+
+@media screen and (min-width: 830px) and (max-width: 845px) {
+  .user-card {
+    min-width: 190px;
+    max-width: 190px;
+  }
+}
+
+@media screen and (min-width: 845px) and (max-width: 860px) {
+  .user-card {
+    min-width: 195px;
+    max-width: 195px;
+  }
+}
+
+@media screen and (min-width: 860px) and (max-width: 870px) {
+  .user-card {
+    min-width: 200px;
+    max-width: 200px;
+  }
+}
+
+@media screen and (min-width: 870px) and (max-width: 890px) {
+  .user-card {
+    min-width: 205px;
+    max-width: 205px;
+  }
+}
+
+@media screen and (min-width: 890px) and (max-width: 910px) {
+  .user-card {
+    min-width: 210px;
+    max-width: 210px;
+  }
+}
+
+@media screen and (min-width: 910px) and (max-width: 920px) {
+  .user-card {
+    min-width: 215px;
+    max-width: 215px;
+  }
+}
+
+@media screen and (min-width: 920px) and (max-width: 940px) {
+  .user-card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+
+@media screen and (min-width: 940px) and (max-width: 950px) {
+  .user-card {
+    min-width: 225px;
+    max-width: 225px;
+  }
+}
+
+@media screen and (min-width: 950px) and (max-width: 965px) {
+  .user-card {
+    min-width: 230px;
+    max-width: 230px;
+  }
+}
+
+@media screen and (min-width: 965px) and (max-width: 980px) {
+  .user-card {
+    min-width: 235px;
+    max-width: 235px;
+  }
+}
+
+@media screen and (min-width: 980px) and (max-width: 995px) {
+  .user-card {
+    min-width: 240px;
+    max-width: 240px;
+  }
+}
+
+@media screen and (min-width: 995px) and (max-width: 1000px) {
+  .user-card {
+    min-width: 245px;
+    max-width: 245px;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1020px) {
+  .user-card {
+    min-width: 245px;
+    max-width: 245px;
+  }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1030px) {
+  .user-card {
+    min-width: 250px;
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1030px) and (max-width: 1040px) {
+  .user-card {
+    min-width: 175px;
+    max-width: 175px;
+  }
+}
+
+@media screen and (min-width: 1040px) and (max-width: 1100px) {
+  .user-card {
+    min-width: 180px;
+    max-width: 180px;
   }
 }
