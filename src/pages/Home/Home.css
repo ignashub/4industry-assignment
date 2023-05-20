@@ -61,3 +61,13 @@
     padding-bottom: 20px;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .user-card-container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .user-card {
+    width: calc(50% - 20px);
+  }
+}
