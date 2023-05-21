@@ -3,6 +3,8 @@
 This is a simple front-end CRUD application - User Management System.
 You can Create, Update and Delete users.
 
+Live version [here](https://4i-user-management-system.netlify.app/)
+
 ## Technologies Used
 
 - JavaScript
