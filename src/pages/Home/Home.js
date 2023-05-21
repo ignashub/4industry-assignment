@@ -80,11 +80,11 @@ const Home = () => {
 			);
 		}, 500);
 	};
-	
 
 	const handleClose = () => {
 		setModalMode(null);
 	};
+
 
   return (
       <div className="Home">

@@ -14,6 +14,7 @@ const Navbar = ({ onCreate, currentPage }) => {
       onCreate();
     }
   };
+  
 
   return (
     <nav className="navbar">

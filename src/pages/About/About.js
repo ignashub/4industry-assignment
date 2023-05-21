@@ -1,4 +1,3 @@
-// About.js
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import './About.css';
@@ -6,8 +5,7 @@ import './About.css';
 const About = () => {
   return (<div>
     <Navbar currentPage={"about"}></Navbar>
-    <div className="About">
-      
+    <div className="About">     
       <div className="content">
         <h1>Welcome!</h1>
         <p>This is a simple front-end CRUD application - User Management System.</p>

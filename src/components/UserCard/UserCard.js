@@ -6,6 +6,7 @@ const UserCard = ({ user, onEdit, onDelete, style, isDeleting }) => {
   const handleDelete = () => {
     onDelete(user);
   };
+  
 
   return (
     <div

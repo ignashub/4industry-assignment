@@ -14,9 +14,9 @@
   z-index: 1000;
 }
 
-  .modal.open {
-    display: flex;
-  }
+.modal.open {
+  display: flex;
+}
 
 .modal-content {
   background-color: #fff;
@@ -25,6 +25,35 @@
   animation: fade-in 0.3s ease;
   margin: auto;
   max-width: 600px;
+}
+
+.modal-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-header-edit-create {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 20px;
+  position: relative;
+  border-top: 1px solid #ccc;
+}
+
+.button-group::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ccc;
 }
 
 form {
@@ -61,33 +90,4 @@ input {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.modal-header {
-  border-bottom: 1px solid #ccc;
-}
-
-.modal-header-edit-create {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding-top: 20px;
-  position: relative;
-  border-top: 1px solid #ccc;
-}
-
-.button-group::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #ccc;
 }
