@@ -18,5 +18,3 @@ To install the project go inside 4industry folder and do:
 To start the project go inside 4industry folder and do:
 
 ### `npm start`
-
-# Have fun!
